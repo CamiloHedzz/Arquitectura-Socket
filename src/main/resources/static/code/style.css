@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+/*-------------E S T I L O   S C R O L L---------------*/
+#conversacion::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#conversacion::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+#caramelos::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#caramelos::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+/*-------------F U E N T E S---------------*/
+@font-face {
+    font-family: 'Franklin Gothic';
+    src: url('../fonts/FRAHV-.TTF');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Franklin Gothic';
+    src: url('../fonts/FRABK-.TTF');
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Franklin Gothic';
+    src: url('../fonts/FRADMCN-.TTF');
+    font-style: normal;
+    font-weight: 400;
+}
+
+/*------------- I N I C I O ---------------*/
+.inicio{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../images/Recurso_4.jpg");
+
+}
+
+
+.inicio article{
+    float: left;
+    margin-left: 7%;
+    margin-top: 4%;
+    width: 43%;
+    color: white;
+    font-family: 'Franklin Gothic';
+    position: relative;
+
+}
+
+.tituloPrincipal{
+    font-size: 5em;
+    margin-bottom: 0.2em;
+}
+
+.inicio h3{
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.inicio p{
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+.crearGrupos{
+    height: 2.7em;
+    width: 12em;
+    color: white;
+    margin-top: 1em;
+    font-weight: 300;
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: solid 2px white;
+    background-color: #3A0553;
+    font-family: 'Franklin Gothic';
+    transition: 0.5s;
+}
+
+
+.crearGrupos:hover{
+    transition: 0.5s;
+    background-color: #E44105;
+    border: solid 2px #E44105;
+    box-shadow: rgba(228, 65, 5, 0.53) 0em 0em 5px 5px;
+}
+
+
+.creditos{
+    background-image: url("../images/Recurso_6.png");    
+    position: absolute;
+}
+
+#bandejaEntrada{
+    background-color: rgba(0, 0, 0, 0.44);
+    position: absolute;
+    color: white;
+    margin-top: 30%;
+    width: 50%;
+    height: 38%;
+}
+
+.tituloBandeja{
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Franklin Gothic';
+}
+
+#conversacion{
+    height: 62%;
+    margin-left: 9%;
+    width: 80%;
+    overflow-y: scroll;
+    color: white;
+}
+
+#message{
+    width: 60%;
+    margin-left: 9%;
+    margin-right: 2%;
+
+}
+
+#sendMessage{
+    height: 2em;
+    width: 8em;
+    color: white;
+    margin-top: 1em;
+    font-weight: 300;
+    font-size: 1em;
+    border-radius: 50px;
+    border: solid 2px white;
+    background-color: #3A0553;
+    font-family: 'Franklin Gothic';
+    transition: 0.5s;
+}
+
+#sendMessage:hover{
+    transition: 0.5s;
+    background-color: #E44105;
+    border: solid 2px #E44105;
+    box-shadow: rgba(228, 65, 5, 0.53) 0em 0em 5px 5px;
+}
+
+#caramelos{
+    position: absolute;
+    margin-left: 55%;
+    margin-top: 4%;
+    width: 45%;
+    height: 83%;
+    padding-left: 10%;
+    overflow-y: scroll;
+}
