@@ -1,4 +1,4 @@
-var mySocket = new WebSocket("ws://localhost:8085/webSocket");
+var mySocket = new WebSocket("ws://152.67.43.252:8085/webSocket");
 
 
 mySocket.onopen = function (e){
