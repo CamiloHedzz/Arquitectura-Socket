@@ -21,11 +21,13 @@ public class MessageRepository {
     public Optional<Message> getMessage(int id){
         return messageCrudRepository.findById(id);
     }
-
     public Message save(Message message){
         return messageCrudRepository.save(message);
     }
     public void delete(Message message){
         messageCrudRepository.delete(message);
     }
+
+
+
 }

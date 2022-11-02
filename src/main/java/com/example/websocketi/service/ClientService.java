@@ -63,4 +63,9 @@ public class ClientService {
         }).orElse(false);
         return aBoolean;
     }
+
+    public Client getClient(String user) {
+        return clientRepository.getUser(user);
+    }
+
 }

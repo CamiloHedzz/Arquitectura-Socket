@@ -26,6 +26,11 @@ public class ClientController {
         return clientService.getClient(clientId);
     }
 
+    @GetMapping("ingresar/{user}")
+    public Client getClient(@PathVariable("user") String userClient) {
+        return clientService.getClient(userClient);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client) {

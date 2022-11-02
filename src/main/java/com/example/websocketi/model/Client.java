@@ -17,9 +17,21 @@ public class Client implements Serializable {
 
     private String name;
 
+    private String email;
+
+    private String usuario;
+
+    private String password;
+
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("client")
     public List<Message> messages;
+
+    @ManyToMany
+    @JoinTable(name = "fichas_usuarios",
+            joinColumns = @JoinColumn(name = "usuarioId"),
+            inverseJoinColumns = @JoinColumn(name = "fichasId"))
+    private List<Fichas> fichas;
 
     public Integer getIdClient() {
         return idClient;
@@ -43,5 +55,29 @@ public class Client implements Serializable {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

@@ -22,8 +22,8 @@ public class Socket {
 
     @OnOpen
     public void onOpen(Session session) throws InterruptedException {
-        client.add(session);
         this.session = session;
+        client.add(session);
         listeners.add(this);
         log.info(String.format("New session connected! Connected listeners: %s", listeners.size()));
 
@@ -31,6 +31,7 @@ public class Socket {
 
     @OnMessage //Allows the client to send message to the socket.
     public void onMessage(String message) {
+        System.out.println("Entroooooo"+session);
         broadcast(message);
     }
 
