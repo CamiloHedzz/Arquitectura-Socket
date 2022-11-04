@@ -20,7 +20,7 @@ function agregarUsuario(){
         data:dataToSend,
         success:function(respuesta){
             console.log(respuesta)
-           // location.reload();
+            location.reload();
         },
         error:function(xhr, respuesta){
             alert("Error de peticion")
@@ -30,13 +30,13 @@ function agregarUsuario(){
 
 function iniciarSesion(){
     $.ajax({
-        url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),
+        url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),    
         datatype:"JSON",
         success:function(respuesta){
             if(respuesta != null){
                 window.open("/code/paginaPrincipal.html", "_self");
             }else{
-                alert("Error de peticion")
+                alert("No existe el usuario o la contraseña es incorrecta")
             }
 
         },

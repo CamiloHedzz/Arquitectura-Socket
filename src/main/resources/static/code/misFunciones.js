@@ -3,9 +3,9 @@ var mySocket = new WebSocket("ws://localhost:8085/webSocket");
 
 
 mySocket.onopen = function (e){
-    e.
     console.log(e)
-    console.log("Coneccion Satisfactoria")
+    console.log("Coneccion Satisfactoria");
+    obtenerCliente();
 }
 
 mySocket.onmessage = function (e){
@@ -88,7 +88,7 @@ function obtenerCaramelo(){
             url+="Francia/";
             break;
         case 6:
-            url+="España/";
+            url+="Espana/";
             break;
     }
     url  += "("+casaca.toString()+").jpg";

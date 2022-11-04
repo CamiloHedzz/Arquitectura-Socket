@@ -24,6 +24,7 @@ public class Socket {
     private static ArrayList<Session> client = new ArrayList<>();
     @OnOpen
     public void onOpen(Session session) throws InterruptedException {
+        session.getPathParameters().get();
         this.session = session;
         client.add(session);
         listeners.add(this);
@@ -32,8 +33,7 @@ public class Socket {
     }
 
     @OnMessage //Allows the client to send message to the socket.
-    public void onMessage(String message) {
-
+    public void onMessage(Session session, String message) {
         broadcast(message);
     }
 
