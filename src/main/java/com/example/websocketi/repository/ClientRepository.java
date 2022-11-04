@@ -26,8 +26,8 @@ public class ClientRepository {
         clientCrudRepository.delete(client);
     }
 
-    public Client getUser(String user){
-        return clientCrudRepository.getUser(user);
+    public Client getUser(String user, String password){
+        return clientCrudRepository.getUser(user, password);
     }
 
 }

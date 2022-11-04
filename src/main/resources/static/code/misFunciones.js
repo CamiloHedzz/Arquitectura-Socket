@@ -1,7 +1,9 @@
 //var mySocket = new WebSocket("ws://152.67.43.252:8085/webSocket");
 var mySocket = new WebSocket("ws://localhost:8085/webSocket");
 
+
 mySocket.onopen = function (e){
+    e.
     console.log(e)
     console.log("Coneccion Satisfactoria")
 }
@@ -12,6 +14,19 @@ mySocket.onmessage = function (e){
     $("#conversacion").append(myTable+"<br>");
 }
 
+function traerInformacion(){
+    $.ajax({
+        url:"/api/Fichas/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            pintarRespuesta(respuesta);
+        },
+        error:function(xhr, respuesta){
+            alert("Error de peticion")
+        }
+    });
+}
 
 function sendText() {
     let msg = {
@@ -21,15 +36,13 @@ function sendText() {
     mySocket.send(msg.text, {}, JSON.stringify({'name': $("#name").val()}));
 }
 
-function traerInformacion(){
+function obtenerCliente(idCLiente){
     $.ajax({
-        url:"/api/Fichas/all",
+        url:"/api/Client/"+idCLiente,
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
-          console.log("Base de datos insertada");
           console.log(respuesta)
-
         },
         error:function(xhr, respuesta){
             alert("Error de peticion")

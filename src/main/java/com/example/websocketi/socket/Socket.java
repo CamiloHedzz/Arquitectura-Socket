@@ -1,5 +1,6 @@
 package com.example.websocketi.socket;
 
+import com.example.websocketi.model.Client;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,9 @@ public class Socket {
     private Session session;
     public static Set<Socket> listeners = new CopyOnWriteArraySet<>();
 
-    private static ArrayList<Session> client = new ArrayList<>();
+    public Client unClient;
 
+    private static ArrayList<Session> client = new ArrayList<>();
     @OnOpen
     public void onOpen(Session session) throws InterruptedException {
         this.session = session;
@@ -31,7 +33,7 @@ public class Socket {
 
     @OnMessage //Allows the client to send message to the socket.
     public void onMessage(String message) {
-        System.out.println("Entroooooo"+session);
+
         broadcast(message);
     }
 
@@ -53,7 +55,6 @@ public class Socket {
     }
 
     private void sendMessage(String message) {
-
         try {
             this.session.getBasicRemote().sendText(message);
         } catch (IOException e) {

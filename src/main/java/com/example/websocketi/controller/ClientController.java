@@ -26,9 +26,9 @@ public class ClientController {
         return clientService.getClient(clientId);
     }
 
-    @GetMapping("ingresar/{user}")
-    public Client getClient(@PathVariable("user") String userClient) {
-        return clientService.getClient(userClient);
+    @GetMapping("ingresar/{user}/{password}")
+    public Client getClient(@PathVariable("user") String userClient, @PathVariable("password") String userPassword) {
+        return clientService.getClient(userClient, userPassword);
     }
 
     @PostMapping("/save")

@@ -12,7 +12,6 @@ function limpiarPantalla(){
 
 function agregarUsuario(){
     let dataToSend = JSON.stringify(obtenerDatos());
-    console.log(dataToSend)
     $.ajax({
         url:"/api/Client/save",
         type:"POST",
@@ -20,7 +19,8 @@ function agregarUsuario(){
         contentType:"application/json",
         data:dataToSend,
         success:function(respuesta){
-            location.reload();
+            console.log(respuesta)
+           // location.reload();
         },
         error:function(xhr, respuesta){
             alert("Error de peticion")
@@ -29,24 +29,22 @@ function agregarUsuario(){
 }
 
 function iniciarSesion(){
-    let name = $("#nombre").val()
-    let data ={
-        usuario:$("#nombre").val()
-    }
-    let dataToSend = JSON.stringify(name);
     $.ajax({
-        url:"/api/Client/ingresar/"+name,
+        url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),
         datatype:"JSON",
-        data:dataToSend,
-        success:function(){
-            console.log("Entraaaa")
+        success:function(respuesta){
+            if(respuesta != null){
+                window.open("/code/paginaPrincipal.html", "_self");
+            }else{
+                alert("Error de peticion")
+            }
+
         },
         error:function(xhr, respuesta){
             alert("Error de peticion")
         }
     });
 }
-
 
 
 function obtenerDatos(){

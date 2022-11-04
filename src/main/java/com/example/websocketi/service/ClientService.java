@@ -64,8 +64,8 @@ public class ClientService {
         return aBoolean;
     }
 
-    public Client getClient(String user) {
-        return clientRepository.getUser(user);
+    public Client getClient(String user, String password) {
+        return clientRepository.getUser(user, password);
     }
 
 }

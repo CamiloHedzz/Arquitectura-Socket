@@ -4,6 +4,7 @@ package com.example.websocketi.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.websocket.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class Client implements Serializable {
     private String usuario;
 
     private String password;
+
+    public transient Session session;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     @JsonIgnoreProperties("client")
@@ -79,5 +82,21 @@ public class Client implements Serializable {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public List<Fichas> getFichas() {
+        return fichas;
+    }
+
+    public void setFichas(List<Fichas> fichas) {
+        this.fichas = fichas;
     }
 }

@@ -49,8 +49,49 @@
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../images/Recurso_4.jpg");
+    background-image: url("../background/FondoMensajes.jpg");
 
+}
+
+#encabezado{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+    padding-left: 7%;
+    color: white;
+    padding-top:5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    display: flex;
+}
+
+.tituloPrincipal{
+    font-family: 'Franklin Gothic';
+    font-size: 55px;
+}
+
+#usuario{
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 65%;
+    font-family: 'Segoe UI';
+}
+
+#usuario h3{
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+#usuario a{
+    color: white;
+    font-size: 20px;
+    text-decoration-line: none;
+    transition: 0.5s;
+    
+}
+
+#usuario a:hover{
+    color: #E72028;
+    transition: 0.5s;
 }
 
 
@@ -65,19 +106,10 @@
 
 }
 
-.tituloPrincipal{
-    font-size: 5em;
-    margin-bottom: 0.2em;
-}
-
 .inicio h3{
-    font-size: 1.2em;
+    font-family: 'Segoe UI';
+    font-size: 22px;
     font-weight: 300;
-}
-
-.inicio p{
-    font-weight: 400;
-    font-size: 1.5em;
 }
 
 .crearGrupos{
@@ -89,24 +121,20 @@
     font-size: 1.2em;
     border-radius: 50px;
     border: solid 2px white;
-    background-color: #3A0553;
+    background-color: #08314D;
     font-family: 'Franklin Gothic';
     transition: 0.5s;
+    font-family: 'Segoe UI';
 }
 
 
 .crearGrupos:hover{
     transition: 0.5s;
-    background-color: #E44105;
-    border: solid 2px #E44105;
-    box-shadow: rgba(228, 65, 5, 0.53) 0em 0em 5px 5px;
+    background-color: #E72028;
+    border: solid 2px #E72028;
+    box-shadow: rgba(246, 10, 10, 0.53) 0em 0em 5px 5px;
 }
 
-
-.creditos{
-    background-image: url("../images/Recurso_6.png");    
-    position: absolute;
-}
 
 #bandejaEntrada{
     background-color: rgba(0, 0, 0, 0.44);

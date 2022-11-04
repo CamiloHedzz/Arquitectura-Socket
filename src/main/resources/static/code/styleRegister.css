@@ -8,23 +8,28 @@
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../images/FondoRegistro2.jpg");
+    background-image: url("../background/FondoRojo.jpg");
     text-align: center;
     position: absolute;
 }
 
 #tituloPrincipal{
     font-family: 'Permanent Marker';
-    margin-bottom: 9%;
+    margin-bottom: 5%;
     text-align: center;
     margin-top: 5%;
     font-size: 70px;
+    color: white;
 }
 
 .registro{
+    padding-bottom: 30px;
+    padding-top: 30px;
     text-align: center; 
     width: 25%;
     margin: 0 auto;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
 }
 
 .inputInicio{
@@ -41,6 +46,7 @@
 .iniciarSesion{
     font-family: 'Permanent Marker';
     font-size: 25px;
+    color: white;
 }
 
 .signup{
@@ -50,7 +56,7 @@
     width: 250px;
     margin-bottom: 10px; 
     transition: 0.5s;
-    border: solid 2px #E44105;
+    border: solid 2px #E72028;
     background-color: white;
     font-family: 'Permanent Marker';
     font-size: 20px;
@@ -58,14 +64,15 @@
 
 .signup:hover{
     transition: 0.5s;
-    background-color: #E44105;
-    border: solid 2px #E44105;
+    background-color: #E72028;
+    border: solid 2px #E72028;
     color: white;
-    box-shadow: rgba(228, 65, 5, 0.53) 0em 0em 5px 5px;
+    box-shadow: rgba(231, 32, 40, 0.53) 0em 0em 5px 5px;
 }
 
 .registro h5{
     font-family: 'Segoe UI';
+    color: white;
 }
 
 .registro h5 a{
