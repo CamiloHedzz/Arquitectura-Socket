@@ -5,7 +5,7 @@ var mySocket = new WebSocket("ws://localhost:8085/webSocket");
 mySocket.onopen = function (e){
     console.log(e)
     console.log("Coneccion Satisfactoria");
-    obtenerCliente();
+    //obtenerCliente();
 }
 
 mySocket.onmessage = function (e){

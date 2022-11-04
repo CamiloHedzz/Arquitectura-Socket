@@ -29,8 +29,9 @@ function agregarUsuario(){
 }
 
 function iniciarSesion(){
+    console.log($("#password").val());
     $.ajax({
-        url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),    
+        url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),
         datatype:"JSON",
         success:function(respuesta){
             if(respuesta != null){

@@ -24,7 +24,7 @@ public class Socket {
     private static ArrayList<Session> client = new ArrayList<>();
     @OnOpen
     public void onOpen(Session session) throws InterruptedException {
-        session.getPathParameters().get();
+        //session.getPathParameters().get();
         this.session = session;
         client.add(session);
         listeners.add(this);
