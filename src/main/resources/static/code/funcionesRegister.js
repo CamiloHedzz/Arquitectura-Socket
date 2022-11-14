@@ -34,12 +34,11 @@ function iniciarSesion(){
         url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),
         datatype:"JSON",
         success:function(respuesta){
-            if(respuesta != null){
+            if(respuesta.usuario != null){
                 window.open("/code/paginaPrincipal.html", "_self");
             }else{
                 alert("No existe el usuario o la contraseña es incorrecta")
             }
-
         },
         error:function(xhr, respuesta){
             alert("Error de peticion")

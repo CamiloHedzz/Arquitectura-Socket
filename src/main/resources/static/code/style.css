@@ -5,20 +5,20 @@
 
 
 /*-------------E S T I L O   S C R O L L---------------*/
-#conversacion::-webkit-scrollbar {
-    -webkit-appearance: none;
-}
-
-#conversacion::-webkit-scrollbar:vertical {
-    width:10px;
-}
-
 #caramelos::-webkit-scrollbar {
-    -webkit-appearance: none;
+    width: 5px;               
+    height: 5px;
+    
 }
 
-#caramelos::-webkit-scrollbar:vertical {
-    width:10px;
+#caramelos::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+
+#caramelos::-webkit-scrollbar-thumb:vertical{
+    display:none ;
 }
 
 /*-------------F U E N T E S---------------*/
@@ -54,145 +54,156 @@
 }
 
 #encabezado{
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.44);
-    padding-left: 7%;
-    color: white;
-    padding-top:5px;
-    padding-bottom: 5px;
-    font-size: 12px;
     display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2%;
 }
 
 .tituloPrincipal{
     font-family: 'Franklin Gothic';
     font-size: 55px;
-}
-
-#usuario{
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 65%;
-    font-family: 'Segoe UI';
-}
-
-#usuario h3{
-    font-size: 20px;
-    margin-bottom: 0;
-}
-
-#usuario a{
     color: white;
-    font-size: 20px;
-    text-decoration-line: none;
-    transition: 0.5s;
-    
 }
 
-#usuario a:hover{
-    color: #E72028;
-    transition: 0.5s;
+#search{
+    text-align: center;
+    width: 30%;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: 'Segoe UI';
+    height: 40px;
 }
 
+.iconosnav{
+    height: 50px;
+    width: 50px;
+}
 
-.inicio article{
+.bandejaEntrada{
+    margin: 5% 10% 0% 10%;    
+}
+
+.conteEntrada{
     float: left;
-    margin-left: 7%;
-    margin-top: 4%;
-    width: 43%;
+    width: 50%;
+    height: 100%;
+}
+
+#contenidoBoton{
+
     color: white;
     font-family: 'Franklin Gothic';
-    position: relative;
-
 }
 
-.inicio h3{
+#contenidoBoton h3{
     font-family: 'Segoe UI';
     font-size: 22px;
     font-weight: 300;
 }
 
-.crearGrupos{
+.conteEntrada h4{
+    font-family: 'Franklin Gothic';
+    font-size: 25px;
+    color: white;
+}
+
+.btnAbrir{
     height: 2.7em;
     width: 12em;
     color: white;
     margin-top: 1em;
-    font-weight: 300;
     font-size: 1.2em;
     border-radius: 50px;
     border: solid 2px white;
     background-color: #08314D;
-    font-family: 'Franklin Gothic';
     transition: 0.5s;
     font-family: 'Segoe UI';
 }
 
 
-.crearGrupos:hover{
+.btnAbrir:hover{
     transition: 0.5s;
     background-color: #E72028;
     border: solid 2px #E72028;
     box-shadow: rgba(246, 10, 10, 0.53) 0em 0em 5px 5px;
 }
 
-
-#bandejaEntrada{
-    background-color: rgba(0, 0, 0, 0.44);
-    position: absolute;
-    color: white;
-    margin-top: 30%;
-    width: 50%;
-    height: 38%;
-}
-
-.tituloBandeja{
-    text-align: center;
-    margin-top: 5px;
-    font-family: 'Franklin Gothic';
-}
-
-#conversacion{
-    height: 62%;
-    margin-left: 9%;
-    width: 80%;
-    overflow-y: scroll;
-    color: white;
-}
-
-#message{
-    width: 60%;
-    margin-left: 9%;
-    margin-right: 2%;
-
-}
-
-#sendMessage{
-    height: 2em;
-    width: 8em;
-    color: white;
-    margin-top: 1em;
-    font-weight: 300;
-    font-size: 1em;
-    border-radius: 50px;
-    border: solid 2px white;
-    background-color: #3A0553;
-    font-family: 'Franklin Gothic';
-    transition: 0.5s;
-}
-
-#sendMessage:hover{
-    transition: 0.5s;
-    background-color: #E44105;
-    border: solid 2px #E44105;
-    box-shadow: rgba(228, 65, 5, 0.53) 0em 0em 5px 5px;
-}
-
 #caramelos{
-    position: absolute;
-    margin-left: 55%;
-    margin-top: 4%;
-    width: 45%;
-    height: 83%;
-    padding-left: 10%;
-    overflow-y: scroll;
+    margin-top: 20px;
+    height: 330px;
+    overflow-x: auto;
 }
+
+#contenidoIzq h4{
+    margin-top: 20px;
+}
+
+.filaCaramelos{
+    height: 300px;
+    display: flex;
+    margin-top: 10px;
+    
+}
+
+/*DISEÑO PARA LAS CARTAS*/
+
+.cardbox{
+    float: left;
+    border-radius: 10px;
+    width: 8rem;
+    height: 280px;
+    perspective: 800px;    
+    margin-right: 10px;
+    perspective: 1000px;
+}
+
+
+.cardbox img{
+    border-radius: 10px 10px 0px 0px;
+    width: 8rem;
+    
+}
+
+.cardbody h2{
+    font-family: 'Franklin Gothic';
+    text-align: center;
+    font-size: 22px;
+}
+
+.cardbody p{
+    text-align: center;
+    font-family: 'Segoe UI';
+    font-size: 16px;
+}
+
+/* PARA EL MOVIMIENTO */
+
+.back{
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    height: 280px;
+    width: 8rem;
+}
+
+.cardbox:hover .card{
+    transform: rotateY(180deg);
+}
+
+.card{
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+}
+
+.cardbody {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+.cardbody .back{
+    transform: rotateY(180deg);
+}
+

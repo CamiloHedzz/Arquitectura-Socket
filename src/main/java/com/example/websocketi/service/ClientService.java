@@ -25,7 +25,6 @@ public class ClientService {
     }
 
     public Client save(Client client){
-        System.out.println("Entra al save");
         Socket.broadcast("socketClient");
         if(client.getIdClient()==null){
             return clientRepository.save(client);

@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script type ="text/javascript" src="misFunciones.js"> </script>
     <title>FIFA</title>
 </head>
@@ -18,26 +16,32 @@
 
         <nav id="encabezado">
             <h1 class="tituloPrincipal">Fichasbook</h1>
-            <div id="usuario">
-                <h3>Bienvenido</h3>
-                <a id="nombreUsuario" href="www.google.com">Camilo Hernández</a> 
+            <input type="text" id="search" placeholder="Busca las monas que te faltan">
+            <div id="contenedorIconos">
+                <a><img class="iconosnav" src="../icons/user.png" alt="user"></a>
+                <a><img class="iconosnav" src="../icons/notifiacations.png" alt="user"></a>
+                <a><img class="iconosnav" src="../icons/message.png" alt="user"></a>
             </div>
         </nav>
-        <article>
-            <h3>Abre sobres, encuentra monas, comparte con tus amigos y <br>disruta del mundial!</h3>
-            <button class="crearGrupos" onclick="pintarFicha()" >Abrir sobre</button>
-        </article>
 
-        <div id="bandejaEntrada">
-            <h2 class="tituloBandeja">Bandeja de entrada</h2>
-            <div id="conversacion"> </div>
-            <input type="text" id="message" placeholder="Escribe algo...">
-            <button id="sendMessage" onclick="sendText()" >Enviar mensaje</button>
+        <div class="bandejaEntrada">
+            <div id="contenidoIzq" class="conteEntrada">
+                <div id="contenidoBoton">
+                    <h3>Abre sobres, encuentra monas, comparte con tus amigos y disruta del mundial!</h3>
+                    <button class="btnAbrir" onclick="pintarFicha()" >Abrir sobre</button>
+                </div>
+                <h4>Sobres abiertos</h4>  
+                <div id="caramelos">
+                                            
+                </div>
+            </div>
+            <div id="contenidoDer" class="conteEntrada">
+            </div>
         </div>
 
-        <div id="caramelos">
+        
 
-        </div>
+
     </div>
 </body>
 

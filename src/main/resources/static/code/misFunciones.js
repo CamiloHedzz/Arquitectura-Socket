@@ -1,6 +1,6 @@
-//var mySocket = new WebSocket("ws://152.67.43.252:8085/webSocket");
-var mySocket = new WebSocket("ws://140.238.155.132:8080/webSocket");
-
+//var mySocket = new WebSocket("ws://140.238.155.132:8080/webSocket");
+var mySocket = new WebSocket("ws://localhost:8080/webSocket");
+var cont = 0;
 
 mySocket.onopen = function (e){
     console.log(e)
@@ -14,16 +14,16 @@ mySocket.onmessage = function (e){
     $("#conversacion").append(myTable+"<br>");
 }
 
-function traerInformacion(){
+function traerInformacion(casaca){
     $.ajax({
-        url:"/api/Fichas/all",
+        url:"/api/Fichas/"+casaca,
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
-            pintarRespuesta(respuesta);
+           console.log(respuesta)
         },
         error:function(xhr, respuesta){
-            alert("Error de peticion")
+            //alert("Error de peticion")
         }
     });
 }
@@ -51,26 +51,34 @@ function obtenerCliente(idCLiente){
 }
 
 function pintarFicha(){
-   traerInformacion();
-    let url = 'src="'+obtenerCaramelo()+'"';
-    console.log(url)
-    let card = '<div class=\"card\" style=\"width: 18rem;\">';
-    card+='<img class="card-img-top" '+url.toString()+' alt="Card image cap">';
-    card+= `<div class="card-body">
-                <h5 class="card-title">Jugador</h5>
-                <p class="card-text">Felicitaciones!</p>
-                
+    traerInformacion();
+    cont=cont+1; // Es el identifiacador de cada fila de paquetes
+    let fila = '<div class="filaCaramelos" id="fila'+cont+'"></div>';
+    $("#caramelos").append(fila);
+    for(i = 0; i<5;i++){
+        let url = 'src="'+obtenerCaramelo()+'"';
+        let tarjeta = `
+        <div class="cardbox">
+            <div class="card">
+                <div class="cardbody">
+                    <img class="cardImgage"`+url+`alt="Jugador">
+                    <h2 id="nombre">Nombre</h2>  
+                    <p id="Equipo">Equipo</p>
+                    <p id="Posicion">Posicion</p>
+                    <p id="Numero Ficha">Numero Ficha</p>
+                </div>
+                <div class="back"> </div>
             </div>
-            </div>
-            <br>`
-    console.log(card)
-    $("#caramelos").append(card);
+        </div>;`
+         $("#fila"+cont).append(tarjeta);
+    }
     mySocket.send( "A un usuario le ha salido un nuevo jugador!");
 }
 
 function obtenerCaramelo(){
     let url = "/images/";
     let casaca = Math.floor((Math.random() * 18) + 1);
+    traerInformacion(casaca);
     switch (Math.floor((Math.random() * 6) + 1)) {
         case 1:
             url+="Ecuador/";

@@ -3,28 +3,37 @@ package com.example.websocketi.socket;
 import com.example.websocketi.model.Client;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.GeneratedValue;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Slf4j
 @Component
-@ServerEndpoint(value = "/webSocket")
+@ServerEndpoint(value = "/webSocket/{idUser}")
+
 public class Socket {
     private Session session;
     public static Set<Socket> listeners = new CopyOnWriteArraySet<>();
 
     public Client unClient;
 
+    HashMap<Session, String> myHm = new HashMap<>();
+
     private static ArrayList<Session> client = new ArrayList<>();
     @OnOpen
+    @GetMapping("/{id}")
     public void onOpen(Session session) throws InterruptedException {
-        //session.getPathParameters().get();
+        String k = session.getPathParameters().get("idUser");
+        System.out.println(k);
+        myHm.put(session, k);
         this.session = session;
         client.add(session);
         listeners.add(this);
