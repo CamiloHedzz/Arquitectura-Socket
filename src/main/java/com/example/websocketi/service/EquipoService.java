@@ -1,5 +1,6 @@
 package com.example.websocketi.service;
 
+import com.example.websocketi.model.Client;
 import com.example.websocketi.model.Equipo;
 import com.example.websocketi.repository.EquipoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ public class EquipoService {
 
     public List<Equipo> getAll(){ return categoriaRepository.getAll(); }
 
-    public Optional<Equipo> getCategoria(int id){ return categoriaRepository.getCategoria(id); }
+    public Optional<Equipo> getEquipo(int id){ return categoriaRepository.getCategoria(id); }
+
 
     public Equipo save(Equipo c){
         if(c.getId()==null){

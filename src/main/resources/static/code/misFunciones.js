@@ -14,6 +14,14 @@ mySocket.onmessage = function (e){
     $("#conversacion").append(myTable+"<br>");
 }
 
+function sendText() {
+    let msg = {
+        type: "message",
+        text: $("#message").val()
+    };
+    mySocket.send(msg.text, {}, JSON.stringify({'name': $("#name").val()}));
+}
+
 function traerInformacion(casaca){
     $.ajax({
         url:"/api/Fichas/"+casaca,
@@ -28,13 +36,22 @@ function traerInformacion(casaca){
     });
 }
 
-function sendText() {
-    let msg = {
-        type: "message",
-        text: $("#message").val()
-    };
-    mySocket.send(msg.text, {}, JSON.stringify({'name': $("#name").val()}));
+function obtenerEquipo(idEquipo, idJugador){
+    $.ajax({
+        url:"/api/Equipo/"+idEquipo,
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta.items)
+            console.log(idJugador)
+        },
+        error:function(xhr, respuesta){
+            alert("Error de peticion")
+        }
+    });
+
 }
+
 
 function obtenerCliente(idCLiente){
     $.ajax({
@@ -77,9 +94,11 @@ function pintarFicha(){
 
 function obtenerCaramelo(){
     let url = "/images/";
-    let casaca = Math.floor((Math.random() * 18) + 1);
-    traerInformacion(casaca);
-    switch (Math.floor((Math.random() * 6) + 1)) {
+    let casaca = Math.floor((Math.random() * 11) + 1);
+    let equipo = Math.floor((Math.random() * 5) + 1);
+    obtenerEquipo(equipo, casaca);
+    //traerInformacion(casaca);
+    switch (equipo) {
         case 1:
             url+="Ecuador/";
             break;
@@ -87,19 +106,16 @@ function obtenerCaramelo(){
             url+="Inglaterra/";
             break;
         case 3:
-            url+="Argentina/";
-            break;
-        case 4:
             url+="Mexico/";
             break;
-        case 5:
+        case 4:
             url+="Francia/";
             break;
-        case 6:
+        case 5:
             url+="Espana/";
             break;
     }
-    url  += "("+casaca.toString()+").jpg";
+    url  += casaca+".jpg";
     return url
 }
 
