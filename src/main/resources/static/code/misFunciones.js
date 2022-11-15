@@ -42,7 +42,7 @@ function obtenerEquipo(idEquipo, idJugador){
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
-            console.log(respuesta.items)
+            console.log(respuesta)
             console.log(idJugador)
         },
         error:function(xhr, respuesta){
