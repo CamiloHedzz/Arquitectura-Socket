@@ -17,7 +17,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 @Slf4j
 @Component
-@ServerEndpoint(value = "/webSocket/{idUser}")
+//@ServerEndpoint(value = "/webSocket/{idUser}")
+@ServerEndpoint(value = "/webSocket")
 
 public class Socket {
     private Session session;

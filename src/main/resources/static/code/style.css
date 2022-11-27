@@ -77,10 +77,53 @@
     height: 40px;
 }
 
+
+/*---- D I S E Ñ O  P A R A   E L   N A V ---*/
+#contenedorIconos a{
+    cursor: pointer;
+}
+
 .iconosnav{
     height: 50px;
     width: 50px;
 }
+
+.botonesnav{
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-style: none;
+    margin-right: 5px;
+}
+
+.botonesnav:hover{
+    transition: 0.5s;
+    box-shadow: rgba(246, 10, 10, 0.53) 0px 0px 6px 6px;
+}
+
+/* - - - -  DISEÑO VENTANAS EMERGENTES -  -  - */
+
+.ventanaEmergentes{
+    background-color: hsl(0, 0%, 96%);
+    width: 20%;
+    height: 20%;
+    display: none;
+    margin-left: 70%;
+    position: absolute;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.nombreMensaje{
+    font-family: 'Franklin Gothic';
+    font-size: 20px;
+    
+}
+
+
+
+
+/* - - - - - DISEÑO PRINCIPAL - - - - - - */
 
 .bandejaEntrada{
     margin: 5% 10% 0% 10%;    
@@ -93,7 +136,6 @@
 }
 
 #contenidoBoton{
-
     color: white;
     font-family: 'Franklin Gothic';
 }

@@ -18,12 +18,27 @@
             <h1 class="tituloPrincipal">Fichasbook</h1>
             <input type="text" id="search" placeholder="Busca las monas que te faltan">
             <div id="contenedorIconos">
-                <a><img class="iconosnav" src="../icons/user.png" alt="user"></a>
-                <a><img class="iconosnav" src="../icons/notifiacations.png" alt="user"></a>
-                <a><img class="iconosnav" src="../icons/message.png" alt="user"></a>
+                <button class="botonesnav" onclick="abrirUsuario()" ><img class="iconosnav" src="../icons/user.png" alt="user"></button>
+                <button class="botonesnav" onclick="abrirNotificaciones()" ><img class="iconosnav" src="../icons/notifiacations.png" alt="notifiacations"></button>
+                <button class="botonesnav" onclick="abrirMensajes()" ><img class="iconosnav" src="../icons/message.png" alt="messages"></button>
             </div>
         </nav>
-
+        <div class="ventanaEmergentes" id="ventanaMessages">
+            <ul>
+                <li>
+                    <h2 class="nombreMensaje">Juan Arias</h2>
+                </li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+        </div>
+        <div class="ventanaEmergentes" id="ventanaUser">
+            <h2 class="tituloVentanas">Usuario</h2>
+        </div>
+        <div class="ventanaEmergentes" id="ventanaNoti">
+            <h2 class="tituloVentanas">Notificaciones</h2>
+        </div>
+        
         <div class="bandejaEntrada">
             <div id="contenidoIzq" class="conteEntrada">
                 <div id="contenidoBoton">
@@ -38,10 +53,6 @@
             <div id="contenidoDer" class="conteEntrada">
             </div>
         </div>
-
-        
-
-
     </div>
 </body>
 
