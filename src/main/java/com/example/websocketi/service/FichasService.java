@@ -12,35 +12,39 @@ import java.util.Optional;
 public class FichasService {
 
     @Autowired
-    private FichasRepository disfrazRepository;
+    private FichasRepository fichasRepository;
 
-    public List<Fichas> getAll(){ return disfrazRepository.getAll(); }
+    public List<Fichas> getAll(){ return fichasRepository.getAll(); }
 
-    public Optional<Fichas> getDisfraz(int id){ return disfrazRepository.getDisfraz(id); }
+    public Optional<Fichas> getFicha(int id){ return fichasRepository.getFicha(id); }
 
     public Fichas save(Fichas d){
         if(d.getId()==null){
-            return disfrazRepository.save(d);
+            return fichasRepository.save(d);
         }else {
-            Optional<Fichas> e = disfrazRepository.getDisfraz(d.getId());
+            Optional<Fichas> e = fichasRepository.getFicha(d.getId());
             if(e.isPresent()){
                 return d;
             }else {
-                return disfrazRepository.save(d);
+                return fichasRepository.save(d);
             }
         }
     }
 
+    public List<Fichas> saveAll(List<Fichas> fichas){
+        return (List<Fichas>) fichasRepository.saveAll(fichas);
+    }
+
     public Fichas update(Fichas costume){
         if(costume.getId()!=null){
-            Optional<Fichas> e = disfrazRepository.getDisfraz(costume.getId());
+            Optional<Fichas> e = fichasRepository.getFicha(costume.getId());
             if (e.isPresent()){if (costume.getName()!=null){
                     e.get().setName(costume.getName());
                 }
                 if (costume.getPosicion()!=null){
                     e.get().setPosicion(costume.getPosicion());
                 }
-                disfrazRepository.save(e.get());
+                fichasRepository.save(e.get());
                 return e.get();
             }else {
                 return costume;
@@ -52,9 +56,9 @@ public class FichasService {
 
     public boolean delete(int id){
         boolean flag=false;
-        Optional<Fichas> e = disfrazRepository.getDisfraz(id);
+        Optional<Fichas> e = fichasRepository.getFicha(id);
         if(e.isPresent()){
-            disfrazRepository.delete(e.get());
+            fichasRepository.delete(e.get());
             flag = true;
         }
         return flag;

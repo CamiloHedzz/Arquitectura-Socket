@@ -14,33 +14,31 @@ import java.util.Optional;
 public class FichasController {
 
     @Autowired
-    private FichasService disfrazService;
+    private FichasService fichasService;
 
     @GetMapping("/all")
-    public List<Fichas> getAll(){ return disfrazService.getAll(); }
+    public List<Fichas> getAll(){ return fichasService.getAll(); }
 
     @GetMapping("/{id}")
-    public Optional<Fichas> getCostume(@PathVariable("id") int id){ return disfrazService.getDisfraz(id); }
+    public Optional<Fichas> getCostume(@PathVariable("id") int id){ return fichasService.getFicha(id); }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Fichas save(@RequestBody Fichas d){ return disfrazService.save(d); }
+    public Fichas save(@RequestBody Fichas d){ return fichasService.save(d); }
+
+    @PostMapping("/saveAll")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Fichas> saveAll(@RequestBody List<Fichas> f){ return (List<Fichas>) fichasService.saveAll(f);}
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Fichas update(@RequestBody Fichas c){
-        return disfrazService.update(c);
+        return fichasService.update(c);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return disfrazService.delete(id);
+        return fichasService.delete(id);
     }
-
-
-
-
-
-
 }

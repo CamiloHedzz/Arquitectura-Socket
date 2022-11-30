@@ -5,19 +5,19 @@
 
 
 /*-------------E S T I L O   S C R O L L---------------*/
-#caramelos, .ventanaEmergentes::-webkit-scrollbar {
+#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar {
     width: 5px;               
     height: 5px;
     
 }
 
-#caramelos, .ventanaEmergentes::-webkit-scrollbar-thumb {
+#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar-thumb {
     background: #ccc;
     border-radius: 4px;
 }
 
 
-#caramelos, .ventanaEmergentes::-webkit-scrollbar-thumb:vertical{
+#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar-thumb:vertical{
     display:none ;
 }
 
@@ -356,9 +356,9 @@
 /*-----------  DISEÑO PARA LA TABLA  ------------*/
 
 #ContenedorTabla{
-    
     height: 30Rem;
     width: 100%;
+    overflow-y: auto;
 }
 
 #tablaFichas{

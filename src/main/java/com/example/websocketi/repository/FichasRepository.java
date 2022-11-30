@@ -12,13 +12,15 @@ import java.util.Optional;
 public class FichasRepository {
 
     @Autowired
-    private FichasCrudRepository disfrazCrudRepository;
+    private FichasCrudRepository fichasCrudRepository;
 
-    public List<Fichas> getAll(){ return (List<Fichas>) disfrazCrudRepository.findAll();}
+    public List<Fichas> getAll(){ return (List<Fichas>) fichasCrudRepository.findAll();}
 
-    public Fichas save(Fichas d){ return disfrazCrudRepository.save(d); }
+    public Fichas save(Fichas d){ return fichasCrudRepository.save(d); }
 
-    public void delete(Fichas d){ disfrazCrudRepository.delete(d);}
+    public List<Fichas> saveAll(List<Fichas> fichas){ return (List<Fichas>) fichasCrudRepository.saveAll(fichas) ;}
 
-    public Optional<Fichas> getDisfraz(int id){ return disfrazCrudRepository.findById(id);}
+    public void delete(Fichas d){ fichasCrudRepository.delete(d);}
+
+    public Optional<Fichas> getFicha(int id){ return fichasCrudRepository.findById(id);}
 }

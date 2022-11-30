@@ -37,6 +37,12 @@ public class ClientController {
         return clientService.save(client);
     }
 
+    @GetMapping("/saveFicha/{idClient}/{idFicha}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveFicha(@PathVariable("idClient") int idCLient, @PathVariable("idFicha") int idFicha) {
+        clientService.saveFichas(idCLient,idFicha);
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Client update(@RequestBody Client client) {

@@ -2,7 +2,9 @@ package com.example.websocketi.service;
 
 
 import com.example.websocketi.model.Client;
+import com.example.websocketi.model.Fichas;
 import com.example.websocketi.repository.ClientRepository;
+import com.example.websocketi.repository.FichasRepository;
 import com.example.websocketi.socket.Socket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +14,12 @@ import java.util.Optional;
 
 @Service
 public class ClientService {
+    
     @Autowired
     private ClientRepository clientRepository;
 
+    @Autowired
+    private FichasRepository fichasRepository;
 
     public List<Client> getAll(){
         return clientRepository.getAll();
@@ -36,6 +41,15 @@ public class ClientService {
                 return client;
             }
         }
+    }
+
+    public void saveFichas(int idClient, int idFicha){
+        Optional<Client> client = clientRepository.getClient(idClient);
+        Optional<Fichas> ficha = fichasRepository.getFicha(idFicha);
+        if(ficha.isPresent()){
+            client.get().getFichas().add(ficha.get());
+        }
+        clientRepository.save(client.get());
     }
 
     public Client update(Client client){

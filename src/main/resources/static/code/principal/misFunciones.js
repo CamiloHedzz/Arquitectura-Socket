@@ -7,9 +7,7 @@ var idClient = localStorage.getItem("idClient");
 
 var mySocket = new WebSocket("ws://localhost:8080/webSocket/"+idClient);
 
-
-
-
+pintarTabla();
 
 /*---------------Logica para el socket--------------------*/
 mySocket.onopen = function (e){
@@ -144,28 +142,52 @@ function pintarFicha(){
                 <div class="back"> </div>
             </div>
         </div>;`
-         $("#fila"+cont).append(tarjeta);
+        $("#fila"+cont).append(tarjeta);
     }
-    mySocket.send( "A un usuario le ha salido un nuevo jugador!");
 }
 
 function obtenerCaramelo(){
-    let url = "/images/";
-    let casaca = Math.floor((Math.random() * 9) + 1);
-    let equipo = Math.floor((Math.random() * 4) + 1);
-    let nombresEquipos = ["Ecuador/","Inglaterra/","Mexico/","Francia/","Espana/"];
-    url  += nombresEquipos[equipo] + casaca + ".jpg";
-    unaFicha = obtenerFicha(equipo, casaca);
+    let url = "../images/";
+    let num = Math.floor((Math.random() * 180) + 1);
+    agregarFicha(num);
+    url  += num + ".png";
     return url
 }
 
+function agregarFicha(idFicha){
+    $.ajax({ 
+        url:"/api/Client/saveFicha/"+idCLiente+"/"+idFicha+"/",
+        datatype:"JSON",
+        error:function(xhr, respuesta){
+            alert("Error de peticion")
+        }
+    });
+}
 
+/*----------------- Logica para pintar las tablas -----------------*/
 
+function pintarTabla(){
+    $.ajax({
+        url:"/api/Fichas/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(fichas){
+            console.log("entraa");
+            for(let i = 0; i<180 ; i++){
+                let columna = `<tr class='fila'>
+                <td id="Equipo">`+fichas[i].equipo.name+`</td>
+                <td id="Nombre">`+fichas[i].name+`</td>
+                <td id="Posicion">`+fichas[i].posicion+`</td>
+                <td id="nficha">`+fichas[i].id+`</td>
+                </tr>`
+                $("#tablaFichas").append(columna);
+            }
+        }
+    });
+}
 
 
 /*
-
-
 function traerInformacion(casaca){
     $.ajax({
         url:"/api/Fichas/"+casaca,

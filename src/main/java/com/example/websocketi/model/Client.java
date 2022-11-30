@@ -26,10 +26,6 @@ public class Client implements Serializable {
 
     public transient Session session;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
-    @JsonIgnoreProperties("client")
-    public List<Message> messages;
-
     @ManyToMany
     @JoinTable(name = "fichas_usuarios",
             joinColumns = @JoinColumn(name = "usuarioId"),
@@ -50,14 +46,6 @@ public class Client implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 
     public String getPassword() {
