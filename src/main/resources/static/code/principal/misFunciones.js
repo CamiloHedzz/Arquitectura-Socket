@@ -1,27 +1,51 @@
+
 //var mySocket = new WebSocket("ws://140.238.155.132:8080/webSocket");
-var mySocket = new WebSocket("ws://localhost:8080/webSocket");
 var cont = 0;
 var unaFicha;
 
+var idClient = localStorage.getItem("idClient");
+
+var mySocket = new WebSocket("ws://localhost:8080/webSocket/"+idClient);
+
+
+
+
+
+/*---------------Logica para el socket--------------------*/
 mySocket.onopen = function (e){
     console.log(e)
-    console.log("Coneccion Satisfactoria");
+    //console.log("Coneccion Satisfactoria");
     //obtenerCliente();
 }
 
 mySocket.onmessage = function (e){
-    console.log(e.data)
-    let myTable = e.data;
-    $("#conversacion").append(myTable+"<br>");
+    let info = JSON.parse(e.data)
+    let mensaje = info.msg.text;
+    let nombreUsuario = info.msg.usuario.name;
+    $("#conversacion").append(nombreUsuario+": "+mensaje+"<br>");
 }
 
-function sendText() {
+async function sendText() {
+    const user = await obtenerCliente(idClient);
     let msg = {
-        type: "message",
-        text: $("#message").val()
+        text: $("#message").val(),
+        usuario: user
     };
-    mySocket.send(msg.text, {}, JSON.stringify({'name': $("#name").val()}));
+    mySocket.send(JSON.stringify({msg}));
 }
+
+async function obtenerCliente(idCLiente){
+    return $.ajax({
+        url:"/api/Client/"+idCLiente,
+        type:"GET",
+        datatype:"JSON",
+        success: await function(respuesta){
+            return respuesta
+        }
+    });
+}
+
+/*---------------Logica para ventanas emergentes--------------------*/
 
 function cerrarVentanas(){
     var divs = document.getElementsByClassName("ventanaEmergentes")
@@ -33,7 +57,6 @@ function cerrarVentanas(){
 }
 
 function abrirUsuario(){
-    
     if(document.getElementById("ventanaUser").style.display =="block"){
         document.getElementById("ventanaUser").style.display="none";  
     }else{
@@ -61,6 +84,31 @@ function abrirNotificaciones(){
         document.getElementById("ventanaNoti").style.display="block";
     }
 }
+
+function abrirConversacion(nomUser){
+    let conversa = `
+        <div class="ventanaConversacion">
+            <div class="cabeceraConversacion" onclick="accionConversacion()"> <a href="www.google.co">Juan Arias</a></div>
+            <div id= "conversacion" class="contenidoConversacion">
+                <input type="text" class="inputMensaje" id="message" placeholder="Escribe algo...">
+                <button class="enviarMensaje" onclick="sendText()">Enviar</button>
+            </div>
+        </div>`
+    $("#contenidoDer").append(conversa);
+    console.log(nomUser);
+}
+
+function accionConversacion(){
+    if(document.getElementById("conversacion").style.display=="block"){
+        document.getElementById("conversacion").style.display="none";
+
+    }else{
+        document.getElementById("conversacion").style.display="block";
+    }
+}
+
+
+/*---------------Logica para pintar las fichas--------------------*/
 
 function obtenerFicha(idEquipo, idJugador){
     $.ajax({
@@ -112,20 +160,11 @@ function obtenerCaramelo(){
 }
 
 
+
+
+
 /*
-function obtenerCliente(idCLiente){
-    $.ajax({
-        url:"/api/Client/"+idCLiente,
-        type:"GET",
-        datatype:"JSON",
-        success:function(respuesta){
-          console.log(respuesta)
-        },
-        error:function(xhr, respuesta){
-            alert("Error de peticion")
-        }
-    });
-}
+
 
 function traerInformacion(casaca){
     $.ajax({

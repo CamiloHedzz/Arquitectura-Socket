@@ -5,40 +5,40 @@
 
 
 /*-------------E S T I L O   S C R O L L---------------*/
-#caramelos::-webkit-scrollbar {
+#caramelos, .ventanaEmergentes::-webkit-scrollbar {
     width: 5px;               
     height: 5px;
     
 }
 
-#caramelos::-webkit-scrollbar-thumb {
+#caramelos, .ventanaEmergentes::-webkit-scrollbar-thumb {
     background: #ccc;
     border-radius: 4px;
 }
 
 
-#caramelos::-webkit-scrollbar-thumb:vertical{
+#caramelos, .ventanaEmergentes::-webkit-scrollbar-thumb:vertical{
     display:none ;
 }
 
 /*-------------F U E N T E S---------------*/
 @font-face {
     font-family: 'Franklin Gothic';
-    src: url('../fonts/FRAHV-.TTF');
+    src: url('../../fonts/FRAHV-.TTF');
     font-style: normal;
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Franklin Gothic';
-    src: url('../fonts/FRABK-.TTF');
+    src: url('../../fonts/FRABK-.TTF');
     font-style: normal;
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Franklin Gothic';
-    src: url('../fonts/FRADMCN-.TTF');
+    src: url('../../fonts/FRADMCN-.TTF');
     font-style: normal;
     font-weight: 400;
 }
@@ -49,7 +49,7 @@
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../background/FondoMensajes.jpg");
+    background-image: url("../../background/FondoMensajes.jpg");
 
 }
 
@@ -112,14 +112,118 @@
     position: absolute;
     border-radius: 10px;
     margin-top: 10px;
+    overflow-y: auto;
 }
 
+/*Usuario*/
+#ventanaUser{
+    width: 120px;
+    height: 60px;
+    display: none;
+    font-size: 18px;
+    margin-left: 75%;
+    margin-top: 10px;
+    padding-top: 5px;
+    position: absolute;
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'Segoe UI';
+    background-color: hsl(0, 0%, 96%);
+}
+
+#ventanaUser a{
+    text-decoration: none;
+    color: black;
+}
+
+/*Notificaciones*/
+
+
+/*Mensajes*/
 .nombreMensaje{
     font-family: 'Franklin Gothic';
     font-size: 20px;
-    
+    color: #08314D;
 }
 
+.mensaje{
+    padding-left: 10px;
+    padding-top: 10px;
+    list-style: none;
+    transition: 0.3s;
+}
+
+.ultimoMensaje{
+    font-family: 'Segoe UI';
+}
+
+.mensaje:hover{
+    background-color: rgba(246, 10, 10, 0.53);
+    transition: 0.3s;
+    
+    cursor: pointer;
+}
+
+/*DISEÑO PARA LA VENTANA DE CONVERSACION*/
+
+.ventanaConversacion{
+    position: absolute;
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    bottom: 1px;
+    right: 10px;
+}
+
+.cabeceraConversacion{
+    border-radius: 10px 10px 0px 0px;
+    font-family: 'Franklin Gothic';
+    font-size: 30px;
+    text-align: center;
+    height: 40px;
+    width: 260px;
+    border-bottom: solid 1px #08314D;
+    cursor: pointer;
+}
+
+.cabeceraConversacion a{
+    text-decoration: none;
+    color: #08314D;
+    transition: 0.5s;
+
+}
+
+.cabeceraConversacion a:hover{
+    color: rgba(51, 101, 227, 0.854);
+    transition: 0.5s;
+
+}
+
+.contenidoConversacion{
+    display: block;
+    border-radius: 10px 10px 0px 0px;
+    overflow-y: auto;
+    height: 300px;
+    width: 260px;
+}
+
+.inputMensaje{
+    position: absolute;
+    border-radius: 10px;
+    margin-left: 5px;
+    height: 30px;
+    width: 160px;
+    bottom: 10px;
+    font-size: 18px;
+}
+
+.enviarMensaje{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+}
 
 
 
@@ -248,4 +352,33 @@
 .cardbody .back{
     transform: rotateY(180deg);
 }
+
+/*-----------  DISEÑO PARA LA TABLA  ------------*/
+
+#ContenedorTabla{
+    
+    height: 30Rem;
+    width: 100%;
+}
+
+#tablaFichas{
+    text-align: center;
+    width: 100%;
+    color: white;
+    border-collapse: collapse;
+}
+
+.fila td{
+    border-style: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    
+}
+
+.fila:hover{
+    background-color: rgba(7, 240, 58, 0.308);
+    transition: 0.3s;
+}
+
 

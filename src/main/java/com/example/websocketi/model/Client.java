@@ -99,4 +99,5 @@ public class Client implements Serializable {
     public void setFichas(List<Fichas> fichas) {
         this.fichas = fichas;
     }
+
 }

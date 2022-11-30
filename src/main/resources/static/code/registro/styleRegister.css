@@ -8,7 +8,7 @@
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../background/FondoRojo.jpg");
+    background-image: url("../../background/FondoRojo.jpg");
     text-align: center;
     position: absolute;
 }

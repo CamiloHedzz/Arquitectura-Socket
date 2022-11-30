@@ -1,3 +1,5 @@
+var letter = "Hola coomoe ss";
+
 function limpiarPantalla(){
     $(".registro").empty();
     let content ="<h3 class='iniciarSesion'>Registrate</h3>";
@@ -29,13 +31,14 @@ function agregarUsuario(){
 }
 
 function iniciarSesion(){
-    console.log($("#password").val());
     $.ajax({
         url:"/api/Client/ingresar/"+$("#nombre").val()+"/"+$("#password").val(),
         datatype:"JSON",
         success:function(respuesta){
             if(respuesta.usuario != null){
-                window.open("/code/paginaPrincipal.html", "_self");
+                localStorage.setItem("idClient", respuesta.idClient);
+                window.open("/code/principal/paginaPrincipal.html", "_self");
+
             }else{
                 alert("No existe el usuario o la contraseña es incorrecta")
             }
@@ -52,7 +55,7 @@ function obtenerDatos(){
         name:$("#nombre").val(),
         email:$("#correo").val(),
         usuario:$("#usuario").val(),
-        password:$("#password").val(),
+        password:$("#password").val()
     };
     return data;
 }

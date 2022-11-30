@@ -13,31 +13,35 @@
 
 <body>
     <div class="inicio">
-
         <nav id="encabezado">
             <h1 class="tituloPrincipal">Fichasbook</h1>
             <input type="text" id="search" placeholder="Busca las monas que te faltan">
             <div id="contenedorIconos">
-                <button class="botonesnav" onclick="abrirUsuario()" ><img class="iconosnav" src="../icons/user.png" alt="user"></button>
-                <button class="botonesnav" onclick="abrirNotificaciones()" ><img class="iconosnav" src="../icons/notifiacations.png" alt="notifiacations"></button>
-                <button class="botonesnav" onclick="abrirMensajes()" ><img class="iconosnav" src="../icons/message.png" alt="messages"></button>
+                <button class="botonesnav" onclick="abrirUsuario()" ><img class="iconosnav" src="../../icons/user.png" alt="user"></button>
+                <button class="botonesnav" onclick="abrirNotificaciones()" ><img class="iconosnav" src="../../icons/notifiacations.png" alt="notifiacations"></button>
+                <button class="botonesnav" onclick="abrirMensajes()" ><img class="iconosnav" src="../../icons/message.png" alt="messages"></button>
             </div>
         </nav>
-        <div class="ventanaEmergentes" id="ventanaMessages">
-            <ul>
-                <li>
-                    <h2 class="nombreMensaje">Juan Arias</h2>
-                </li>
-                <li>Elemento 2</li>
-                <li>Elemento 3</li>
-            </ul>
+
+        <div id="ventanaUser">
+            <a href="../perfil/user.html">Ver perfil</a>
+            <a href="../../index.html">Cerrar Sesión</a>
         </div>
-        <div class="ventanaEmergentes" id="ventanaUser">
-            <h2 class="tituloVentanas">Usuario</h2>
-        </div>
+        
         <div class="ventanaEmergentes" id="ventanaNoti">
             <h2 class="tituloVentanas">Notificaciones</h2>
         </div>
+
+        <div class="ventanaEmergentes" id="ventanaMessages">
+            <ul>
+                <li class="mensaje" onclick="abrirConversacion('hola')">
+                    <h2 class="nombreMensaje">Juan Arias</h2>
+                    <p class="ultimoMensaje">Este es el ultimo mensaje</p>
+                </li>
+            </ul>
+        </div>
+        
+
         
         <div class="bandejaEntrada">
             <div id="contenidoIzq" class="conteEntrada">
@@ -51,6 +55,23 @@
                 </div>
             </div>
             <div id="contenidoDer" class="conteEntrada">
+                <div id="ContenedorTabla">
+                    <table id="tablaFichas">
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Nombre</th>
+                            <th>Posición</th>
+                            <th>Numero Ficha</th>
+                        </tr>
+                        <tr class="fila" >
+                            <td id="Equipo">1</td>
+                            <td id="Nombre">2</td>
+                            <td id="Posicion">3</td>
+                            <td id="nficha">4</td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
