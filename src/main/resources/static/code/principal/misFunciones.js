@@ -86,7 +86,7 @@ function abrirNotificaciones(){
 function abrirConversacion(nomUser){
     let conversa = `
         <div class="ventanaConversacion">
-            <div class="cabeceraConversacion" onclick="accionConversacion()"> <a href="www.google.co">Juan Arias</a></div>
+            <div class="cabeceraConversacion" onclick="accionConversacion()"> <a href="../perfilAmigo/PerfilAmigo.html">Juan Arias</a></div>
             <div id= "conversacion" class="contenidoConversacion">
                 <input type="text" class="inputMensaje" id="message" placeholder="Escribe algo...">
                 <button class="enviarMensaje" onclick="sendText()">Enviar</button>
@@ -128,8 +128,9 @@ function pintarFicha(){
     let fila = '<div class="filaCaramelos" id="fila'+cont+'"></div>';
     $("#caramelos").append(fila);
     for(i = 0; i<5;i++){
-        console.log("Entra: "+i);
-        let url = 'src="'+obtenerCaramelo()+'"';
+        let urlFicha= obtenerCaramelo();
+        console.log(urlFicha);
+        let url = 'src="'+urlFicha+'"';
         let tarjeta = `
         <div class="cardbox">
             <div class="card">
@@ -141,26 +142,28 @@ function pintarFicha(){
                 </div>
                 <div class="back"> </div>
             </div>
-        </div>;`
+        </div>`
         $("#fila"+cont).append(tarjeta);
     }
+    pintarAbierta();
 }
 
 function obtenerCaramelo(){
-    let url = "../images/";
+    let url = "../../images/";
     let num = Math.floor((Math.random() * 180) + 1);
     agregarFicha(num);
-    url  += num + ".png";
+    if(num<=108){
+        url  += num + ".jpg";
+    }else{
+        url  += num+ ".png";
+    }
     return url
 }
 
 function agregarFicha(idFicha){
     $.ajax({ 
-        url:"/api/Client/saveFicha/"+idCLiente+"/"+idFicha+"/",
-        datatype:"JSON",
-        error:function(xhr, respuesta){
-            alert("Error de peticion")
-        }
+        url:"/api/Client/saveFicha/"+idClient+"/"+idFicha+"/",
+        datatype:"JSON"
     });
 }
 
@@ -172,15 +175,37 @@ function pintarTabla(){
         type:"GET",
         datatype:"JSON",
         success:function(fichas){
-            console.log("entraa");
             for(let i = 0; i<180 ; i++){
-                let columna = `<tr class='fila'>
+                let columna = `<tr id="`+i+`"class='fila'>
                 <td id="Equipo">`+fichas[i].equipo.name+`</td>
                 <td id="Nombre">`+fichas[i].name+`</td>
                 <td id="Posicion">`+fichas[i].posicion+`</td>
                 <td id="nficha">`+fichas[i].id+`</td>
                 </tr>`
                 $("#tablaFichas").append(columna);
+            }
+        }
+    });
+    
+}
+
+function pintarAbierta(){
+    $.ajax({
+        url:"/api/Client/"+idClient,
+        type:"GET",
+        datatype:"JSON",
+        success: function(respuesta){   
+            let fichas = [];
+            for(let i = 0; i<respuesta.fichas.length;i++){
+                fichas.push(respuesta.fichas[i].id);
+            }
+            fichas.sort((a,b)=>a-b);
+            for(let i = 0 ; i<fichas.length ; i++){
+                if((fichas[i])==(fichas[i-1])){
+                    document.getElementById(fichas[i]-1).style.backgroundColor ="#dad865";
+                }else{
+                    document.getElementById(fichas[i]-1).style.backgroundColor = "#2e8c42";
+                }
             }
         }
     });

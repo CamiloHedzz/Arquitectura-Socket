@@ -5,21 +5,23 @@
 
 
 /*-------------E S T I L O   S C R O L L---------------*/
-#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar {
+#caramelos::-webkit-scrollbar, .ventanaEmergentes::-webkit-scrollbar, #ContenedorTabla::-webkit-scrollbar {
     width: 5px;               
     height: 5px;
-    
+    background: #ccc;
+   
 }
 
-#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar-thumb {
-    background: #ccc;
+#caramelos::-webkit-scrollbar-thumb, .ventanaEmergentes::-webkit-scrollbar-thumb, #ContenedorTabla::-webkit-scrollbar-thumb {
+    display: none;
     border-radius: 4px;
 }
 
+#ContenedorTabla::-webkit-scrollbar {
+    display: none;
+} 
 
-#caramelos, .ventanaEmergentes, #ContenedorTabla::-webkit-scrollbar-thumb:vertical{
-    display:none ;
-}
+
 
 /*-------------F U E N T E S---------------*/
 @font-face {
@@ -289,7 +291,7 @@
 
 .filaCaramelos{
     height: 300px;
-    display: flex;
+   display: flex;
     margin-top: 10px;
     
 }
@@ -359,6 +361,7 @@
     height: 30Rem;
     width: 100%;
     overflow-y: auto;
+    padding-left: 50px;
 }
 
 #tablaFichas{
@@ -368,16 +371,16 @@
     border-collapse: collapse;
 }
 
+#tablaFichas tr th{
+    font-family: 'Franklin Gothic';
+}
+
 .fila td{
-    border-style: none;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    
+    font-family: 'Segoe UI';
 }
 
 .fila:hover{
-    background-color: rgba(7, 240, 58, 0.308);
+    background-color: rgba(90, 140, 46, 0.56);
     transition: 0.3s;
 }
 

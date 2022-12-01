@@ -26,6 +26,9 @@ public class Fichas implements Serializable {
     @JsonIgnoreProperties("fichas")
     private Equipo equipo;
 
+    @ManyToMany(mappedBy = "fichas")
+    @JsonIgnoreProperties("fichas")
+    private List<Client> clientes;
 
     public Integer getId() {
         return id;
@@ -73,6 +76,14 @@ public class Fichas implements Serializable {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public List<Client> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Client> clientes) {
+        this.clientes = clientes;
     }
 
 }
