@@ -211,6 +211,14 @@ function pintarAbierta(){
     });
 }
 
+/*-----------------Logica para el buscador-----------------*/
+
+function buscar(e){
+    if(e.key=='Enter'){
+        nombreUser =  $("#search").val();
+        console.log(nombreUser);
+    }
+}
 
 /*
 function traerInformacion(casaca){

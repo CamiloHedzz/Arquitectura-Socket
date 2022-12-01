@@ -15,7 +15,8 @@
     <div class="inicio">
         <nav id="encabezado">
             <h1 class="tituloPrincipal">Fichasbook</h1>
-            <input type="text" id="search" placeholder="Busca las monas que te faltan">
+            <!--Buscador-->
+            <input type="text" id="search"  onkeypress="buscar(event)"  placeholder="Busca a tus amigos!">
             <div id="contenedorIconos">
                 <button class="botonesnav" onclick="abrirUsuario()" ><img class="iconosnav" src="../../icons/user.png" alt="user"></button>
                 <button class="botonesnav" onclick="abrirNotificaciones()" ><img class="iconosnav" src="../../icons/notifiacations.png" alt="notifiacations"></button>

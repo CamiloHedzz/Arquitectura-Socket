@@ -81,4 +81,9 @@ public class ClientService {
         return clientRepository.getUser(user, password);
     }
 
+    public Client getUserClient(String user) {
+        return clientRepository.getUserClient(user);
+    }
+    
+
 }

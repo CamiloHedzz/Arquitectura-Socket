@@ -31,6 +31,11 @@ public class ClientController {
         return clientService.getClient(userClient, userPassword);
     }
 
+    @GetMapping("obtener/{user}")
+    public Client getUserClient(@PathVariable("user") String userClient) {
+        return clientService.getUserClient(userClient);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client) {
