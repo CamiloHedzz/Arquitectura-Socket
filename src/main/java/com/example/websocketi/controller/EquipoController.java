@@ -28,4 +28,9 @@ public class EquipoController {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Equipo save(@RequestBody Equipo c){ return equipoService.save(c); }
+
+    @PostMapping("/saveAll")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Equipo> saveAll(@RequestBody List<Equipo> e){return (List<Equipo>) equipoService.saveAll(e); }
+    
 }

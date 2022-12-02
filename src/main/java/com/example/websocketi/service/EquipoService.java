@@ -11,36 +11,38 @@ import java.util.Optional;
 
 @Service
 public class EquipoService {
-
     @Autowired
-    private EquipoRepository categoriaRepository;
+    private EquipoRepository equipoRepository;
 
-    public List<Equipo> getAll(){ return categoriaRepository.getAll(); }
+    public List<Equipo> getAll(){ return equipoRepository.getAll(); }
 
-    public Optional<Equipo> getEquipo(int id){ return categoriaRepository.getCategoria(id); }
-
+    public Optional<Equipo> getEquipo(int id){ return equipoRepository.getCategoria(id); }
 
     public Equipo save(Equipo c){
         if(c.getId()==null){
-            return categoriaRepository.save(c);
+            return equipoRepository.save(c);
         }else {
-            Optional<Equipo> e = categoriaRepository.getCategoria(c.getId());
+            Optional<Equipo> e = equipoRepository.getCategoria(c.getId());
             if(e.isPresent()){
                 return c;
             }else {
-                return categoriaRepository.save(c);
+                return equipoRepository.save(c);
             }
         }
     }
 
+    public List<Equipo> saveAll(List<Equipo> equipos){
+        return (List<Equipo>) equipoRepository.saveAll(equipos);
+    }
+
     public Equipo update(Equipo category){
         if(category.getId()!=null){
-            Optional<Equipo> e = categoriaRepository.getCategoria(category.getId());
+            Optional<Equipo> e = equipoRepository.getCategoria(category.getId());
             if (e.isPresent()){
                 if (category.getName()!=null){
                     e.get().setName(category.getName());
                 }
-                categoriaRepository.save(e.get());
+                equipoRepository.save(e.get());
                 return e.get();
             }else {
                 return category;
@@ -52,12 +54,11 @@ public class EquipoService {
 
     public boolean delete(int id){
         boolean flag=false;
-        Optional<Equipo> e = categoriaRepository.getCategoria(id);
+        Optional<Equipo> e = equipoRepository.getCategoria(id);
         if(e.isPresent()){
-            categoriaRepository.delete(e.get());
+            equipoRepository.delete(e.get());
             flag = true;
         }
         return flag;
     }
-
 }

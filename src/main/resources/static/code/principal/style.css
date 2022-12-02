@@ -45,6 +45,13 @@
     font-weight: 400;
 }
 
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../../fonts/Segoe\ UI.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+
 /*------------- I N I C I O ---------------*/
 .inicio{
     width: 100%;
@@ -77,6 +84,7 @@
     font-size: 18px;
     font-family: 'Segoe UI';
     height: 40px;
+    margin-right: 8%;
 }
 
 
@@ -227,6 +235,38 @@
     border-radius: 10px;
 }
 
+
+/*---------D I S E Ñ O  PARA EL B U S C A D O R----------*/
+
+
+
+#ventanaBuscador{
+    width: 24%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+    overflow-y: auto;
+}
+
+.usuarioEncontrado{
+    width: 100%;
+    height: 60px;
+    background-color: #E72028;
+
+}
+
+.nomUsuarioEnc{
+    font-family: 'Franklin Gothic';
+}
+
+.usuarioEncontrado h5{
+    font-family: 'Segoe UI';
+}
 
 
 /* - - - - - DISEÑO PRINCIPAL - - - - - - */

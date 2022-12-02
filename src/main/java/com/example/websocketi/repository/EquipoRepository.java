@@ -18,6 +18,8 @@ public class EquipoRepository {
 
     public Equipo save(Equipo c){ return categoriasCrudRepository.save(c); }
 
+    public List<Equipo> saveAll(List<Equipo> equipos){ return (List<Equipo>) categoriasCrudRepository.saveAll(equipos);}
+
     public void delete(Equipo c){ categoriasCrudRepository.delete(c);}
 
     public Optional<Equipo> getCategoria(int id){

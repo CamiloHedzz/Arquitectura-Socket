@@ -16,8 +16,6 @@ public class Equipo implements Serializable {
 
     private String name;
 
-    private String imagen;
-
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "equipo")
     @JsonIgnoreProperties("equipo")
     private List<Fichas> fichas;
@@ -38,15 +36,6 @@ public class Equipo implements Serializable {
         this.name = name;
     }
 
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     public List<Fichas> getFichas() {
         return fichas;
     }
@@ -54,6 +43,5 @@ public class Equipo implements Serializable {
     public void setFichas(List<Fichas> fichas) {
         this.fichas = fichas;
     }
-
 
 }

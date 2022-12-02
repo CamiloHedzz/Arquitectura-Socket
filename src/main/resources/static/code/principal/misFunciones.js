@@ -114,7 +114,6 @@ function obtenerFicha(idEquipo, idJugador){
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
-            console.log(respuesta.fichas[idJugador]);
             return respuesta.fichas[idJugador];
         },
         error:function(xhr, respuesta){
@@ -129,7 +128,6 @@ function pintarFicha(){
     $("#caramelos").append(fila);
     for(i = 0; i<5;i++){
         let urlFicha= obtenerCaramelo();
-        console.log(urlFicha);
         let url = 'src="'+urlFicha+'"';
         let tarjeta = `
         <div class="cardbox">
@@ -186,7 +184,7 @@ function pintarTabla(){
             }
         }
     });
-    
+    pintarAbierta();
 }
 
 function pintarAbierta(){
@@ -194,7 +192,7 @@ function pintarAbierta(){
         url:"/api/Client/"+idClient,
         type:"GET",
         datatype:"JSON",
-        success: function(respuesta){   
+        success: function(respuesta){
             let fichas = [];
             for(let i = 0; i<respuesta.fichas.length;i++){
                 fichas.push(respuesta.fichas[i].id);
@@ -213,10 +211,31 @@ function pintarAbierta(){
 
 /*-----------------Logica para el buscador-----------------*/
 
+function obtenerUsername(){
+    let username = $("#search").val();
+    console.log(username);
+    $.ajax({
+        url:"/api/Client/obtener/"+username,
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            
+        },
+        error:function(xhr, respuesta){
+            alert("Error de peticion");
+        }
+    });
+}
+
+
 function buscar(e){
     if(e.key=='Enter'){
-        nombreUser =  $("#search").val();
-        console.log(nombreUser);
+        if(document.getElementById("ventanaBuscador").style.display==""){
+            document.getElementById("ventanaBuscador").style.display="block";
+        }
+        obtenerUsername();
+        
     }
 }
 
