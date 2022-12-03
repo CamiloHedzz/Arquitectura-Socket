@@ -42,6 +42,7 @@ public class Socket {
         String k = session.getPathParameters().get("idUser");
         myHm.put(session, k);
         client.add(session);
+        
         //log.info(String.format("New session connected! Connected listeners: %s", listeners.size()));
     }
 

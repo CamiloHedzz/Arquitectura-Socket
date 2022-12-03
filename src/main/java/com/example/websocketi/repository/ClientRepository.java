@@ -31,10 +31,8 @@ public class ClientRepository {
         return clientCrudRepository.getUser(user, password);
     }
 
-    
-    public Client getUserClient(String user){
+    public  List<Client> getUserClient(String user){
         return clientCrudRepository.getUserClient(user);
     }
-    
 
 }

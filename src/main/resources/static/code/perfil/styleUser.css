@@ -23,8 +23,42 @@ body {
   background-size: cover;
 }
 
+.misCaramelos{
+  color: black;
+}
+
 h2, div{
   color: aliceblue;
+}
+
+#contenidoFichas{
+  display: none;
+  top: 10%;
+  width: 65%;
+  right: 4.6%;
+  height: 40rem;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+}
+
+#equipos2{
+  display: none;
+}
+
+.btnEquipos{
+  width: 100%;
+  padding-left: 35%;
+  height: 5.55rem;
+  display: flex;
+  border: none;
+  font-size: 20px;
+  align-items: center;
+  text-align:center;
+}
+
+.btnEquipos p {
+  text-align:center;
+  
 }
 
 .principal{
@@ -44,6 +78,7 @@ h2, div{
 }
 
 .circular{
+  display: none;
   height: 100px;
   width: 100px;
   position: relative;
@@ -86,14 +121,14 @@ h2, div{
   height: 100%;
   width: 100%;
   background: #fff;
-  -webkit-border-radius: 100%;
+  border-radius: 100%;
   clip: rect(0px, 100px, 100px, 50px);
 }
 .circle .bar .progress{
   position: absolute;
   height: 100%;
   width: 100%;
-  -webkit-border-radius: 100%;
+  border-radius: 100%;
   clip: rect(0px, 50px, 100px, 0px);
 }
 .circle .bar .progress, .dot span{

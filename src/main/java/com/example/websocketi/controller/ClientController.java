@@ -32,8 +32,8 @@ public class ClientController {
     }
 
     @GetMapping("obtener/{user}")
-    public Client getUserClient(@PathVariable("user") String userClient) {
-        return clientService.getUserClient(userClient);
+    public List<Client> getUserClient(@PathVariable("user") String userClient) {
+        return clientService.getUserClient("%"+userClient+"%");
     }
 
     @PostMapping("/save")
@@ -52,6 +52,12 @@ public class ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     public Client update(@RequestBody Client client) {
         return clientService.update(client);
+    }
+
+    @GetMapping("/saveAmigo/{idClient}/{idAmigo}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveAmigo(@PathVariable("idClient") int idCLient, @PathVariable("idAmigo") int idAmigo) {
+        clientService.saveAmigo(idCLient,idAmigo);
     }
 
     @DeleteMapping("/{id}")

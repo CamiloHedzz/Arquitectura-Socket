@@ -1,4 +1,3 @@
-var letter = "Hola coomoe ss";
 
 function limpiarPantalla(){
     $(".registro").empty();

@@ -19,6 +19,7 @@ public class Fichas implements Serializable {
     private String posicion;
 
     private String imagen;
+    
     private String fecha_nacimiento;
 
     @ManyToOne

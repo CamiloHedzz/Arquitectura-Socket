@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import javax.websocket.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,9 +25,12 @@ public class Client implements Serializable {
 
     private String password;
 
+    private ArrayList<Integer> idAmigos = new ArrayList<>();
+
     public transient Session session;
 
     @ManyToMany
+    @JsonIgnoreProperties("clientes")
     @JoinTable(name = "fichas_usuarios",
             joinColumns = @JoinColumn(name = "usuarioId"),
             inverseJoinColumns = @JoinColumn(name = "fichasId"))
@@ -88,4 +92,11 @@ public class Client implements Serializable {
         this.fichas = fichas;
     }
 
+    public ArrayList<Integer> getIdAmigos() {
+        return idAmigos;
+    }
+
+    public void setIdAmigos(ArrayList<Integer> idAmigos) {
+        this.idAmigos = idAmigos;
+    }
 }

@@ -81,9 +81,16 @@ public class ClientService {
         return clientRepository.getUser(user, password);
     }
 
-    public Client getUserClient(String user) {
+    public List<Client> getUserClient(String user) {
         return clientRepository.getUserClient(user);
     }
-    
 
+    public void saveAmigo(int idClient, int idAmigo){
+        Optional<Client> client = clientRepository.getClient(idClient);
+        if(client.isPresent()){
+            client.get().getIdAmigos().add(idAmigo);
+        }
+        clientRepository.save(client.get());
+    }
+    
 }
